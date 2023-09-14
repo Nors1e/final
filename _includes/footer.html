@@ -1,8 +1,15 @@
 <footer class="footer">
-    <p>&copy; {{site.username}}</p>
-    <p>Build with Jekyll and <span class="love">❤</span> by <a href="https://github.com/nrandecker">Caleb Stout</a></p>
+    <div class="content">
+        <p>&copy; {{site.username}}. Crafted with <span class="love">❤</span> using Jekyll.</p>
+        <p>Development by <a href="https://github.com/nrandecker" target="_blank" rel="noopener noreferrer">Caleb Stout</a></p>
+    </div>
 </footer>
+
+<!-- Scripts -->
 <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="{{ "/assets/js/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+
+<!-- Analytics -->
 {% include google-analytics.html %}
+
