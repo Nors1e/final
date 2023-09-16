@@ -5,6 +5,7 @@
   width: 90%;
   max-width: 960px;
   margin: 0 auto;
+
   @media only screen and (min-width: $cut) {
     width: 80%;
   }
@@ -31,15 +32,21 @@
   }
 }
 
-.user-projects img {
+.images-left, .images-right {
   max-width: 45%;
+  margin: 20px 0;
+  flex: 1;
+}
+
+.user-projects img {
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 20px 0;
 }
 
 .contents, .contents-right {
   max-width: 50%;
+  flex: 1;
   padding: 0 20px;
 }
 
@@ -60,7 +67,7 @@
   margin-top: 15px;
   padding: 10px 15px;
   border: none;
-  background-color: $purple; /* This uses your color variable */
+  background-color: $purple;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -68,7 +75,7 @@
 }
 
 .project-link:hover {
-  background-color: darken($purple, 10%); /* Darkens the purple color a bit on hover */
+  background-color: darken($purple, 10%);
 }
 
 .contents {
@@ -80,17 +87,5 @@
 .contents-right {
   @media only screen and (min-width: $cut) {
     order: 0;
-  }
-}
-
-.images-right img {
-  @media only screen and (min-width: $cut) {
-    float: right;
-  }
-}
-
-.images-left img {
-  @media only screen and (min-width: $cut) {
-    float: left;
   }
 }
