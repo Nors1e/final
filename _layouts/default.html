@@ -1,12 +1,26 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <link rel="icon" href="/assets/img/trekking.png" type="image/x-icon">
+
     <script type="application/javascript">
         function getIP(json) {
             console.log("My public IP address is: ", json.ip);
+            document.getElementById('ipAddress').textContent = json.ip;
+
+            // Show the popup
+            var ipPopup = document.getElementById('ipPopup');
+            ipPopup.style.display = 'block';
+
+            // Hide the popup after 10 seconds
+            setTimeout(function() {
+                ipPopup.style.display = 'none';
+            }, 10000);
         }
     </script>
+
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
     <style>
         #ipPopup {
             display: none;
@@ -22,19 +36,25 @@
             z-index: 1000;  /* to ensure it's above other elements */
         }
     </style>
+
+    {% include head.html %}
 </head>
-<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-<html lang="en">
-  {% include head.html %}
-  <body>
-      {% include header.html %}
-      <section id="about">
+<body>
+    {% include header.html %}
+    
+    <section id="about">
         {% include about.html %}
-        <div id="ipPopup">Welcome <span id="ipAddress"></span> :)</div>
-      </section>
-      <section id="projects">
+    </section>
+
+    <section id="projects">
         {% include projects.html %}
-      </section>
-        {{ content }}
-      {% include footer.html %}
-  </body>
+    </section>
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <!-- Place the popup div here -->
+    <div id="ipPopup">Welcome <span id="ipAddress"></span> :)</div>
+</body>
+</html>
