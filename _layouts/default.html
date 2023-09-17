@@ -3,27 +3,9 @@
 <head>
     <link rel="icon" href="/assets/img/trekking.png" type="image/x-icon">
 
-    <script type="application/javascript">
-        function getIP(json) {
-            console.log("My public IP address is: ", json.ip);
-            document.getElementById('ipAddress').textContent = json.ip;
-
-            // Show the popup
-            var ipPopup = document.getElementById('ipPopup');
-            ipPopup.style.display = 'block';
-
-            // Hide the popup after 10 seconds
-            setTimeout(function() {
-                ipPopup.style.display = 'none';
-            }, 10000);
-        }
-    </script>
-
-    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-
     <style>
         #ipPopup {
-            display: block;
+            display: none;
             position: fixed;
             bottom: 10px;
             left: 10px;
@@ -56,5 +38,29 @@
 
     <!-- Place the popup div here -->
     <div id="ipPopup">Welcome <span id="ipAddress"></span> :)</div>
+
+    <script>
+        function getIP(json) {
+            console.log("My public IP address is: ", json.ip);
+            document.getElementById('ipAddress').textContent = json.ip;
+
+            // Show the popup
+            var ipPopup = document.getElementById('ipPopup');
+            ipPopup.style.display = 'block';
+
+            // Hide the popup after 10 seconds
+            setTimeout(function() {
+                ipPopup.style.display = 'none';
+            }, 10000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // This will run when the document is ready
+            var script = document.createElement('script');
+            script.type = 'application/javascript';
+            script.src = 'https://api.ipify.org?format=jsonp&callback=getIP';
+            document.head.appendChild(script);
+        });
+    </script>
 </body>
 </html>
