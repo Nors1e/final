@@ -7,6 +7,21 @@
         }
     </script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <style>
+        #ipPopup {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            opacity: 0.9;
+            font-size: 16px;
+            z-index: 1000;  /* to ensure it's above other elements */
+        }
+    </style>
 </head>
 <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 <html lang="en">
@@ -15,6 +30,7 @@
       {% include header.html %}
       <section id="about">
         {% include about.html %}
+        <div id="ipPopup">Welcome <span id="ipAddress"></span> :)</div>
       </section>
       <section id="projects">
         {% include projects.html %}
